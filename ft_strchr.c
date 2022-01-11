@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 20:26:09 by imoreno           #+#    #+#             */
-/*   Updated: 2021/12/07 20:30:21 by imoreno          ###   ########.fr       */
+/*   Created: 2022/01/09 14:48:06 by imoreno           #+#    #+#             */
+/*   Updated: 2022/01/09 14:48:09 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if ((c >= '0' && c <= '9')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'))
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		return (1);
+		if (s[i] == c)
+		{
+			return ((char *)&s[i]);
+		}
+		i++;
 	}
-	return (0);
+	if (c == s[i])
+	{
+		return ((char *)&s[i]);
+	}
+	return (NULL);
 }

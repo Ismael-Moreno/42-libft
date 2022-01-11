@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 23:25:08 by imoreno           #+#    #+#             */
-/*   Updated: 2021/12/07 23:28:13 by imoreno          ###   ########.fr       */
+/*   Created: 2022/01/09 21:10:50 by imoreno           #+#    #+#             */
+/*   Updated: 2022/01/09 21:10:52 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_bzero(void *s, int n)
+int	ft_atoi(const char *str)
 {
-	int	i;
+	long			number;
+	long			symbol;
+	unsigned int	i;
 
+	number = 0;
+	symbol = 1;
 	i = 0;
-	while (i < n)
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		((char *)s)[i] = 0;
+		if (str[i] == '-')
+			symbol = -1;
 		i++;
 	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		number = number * 10 + str[i] - '0';
+		i++;
+	}
+	return ((int)(number * symbol));
 }

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 20:26:09 by imoreno           #+#    #+#             */
-/*   Updated: 2021/12/07 20:30:21 by imoreno          ###   ########.fr       */
+/*   Created: 2022/01/11 09:46:20 by imoreno           #+#    #+#             */
+/*   Updated: 2022/01/11 09:46:22 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isalnum(int c)
+char	*ft_strdup(const char *s1)
 {
-	if ((c >= '0' && c <= '9')
-		|| (c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'))
+	size_t	len;
+	char	*copy;
+	int		i;
+
+	len = ft_strlen((char *)s1);
+	copy = (char *)malloc(len);
+	i = 0;
+	while (s1[i])
 	{
-		return (1);
+		copy[i] = s1[i];
+		i++;
 	}
-	return (0);
+	return (copy);
 }
