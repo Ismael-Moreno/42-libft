@@ -6,9 +6,10 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 19:22:20 by imoreno           #+#    #+#             */
-/*   Updated: 2021/12/11 09:40:34 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/01/12 00:42:37 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

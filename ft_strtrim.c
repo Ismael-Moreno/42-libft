@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 19:27:43 by imoreno           #+#    #+#             */
-/*   Updated: 2022/01/12 14:11:41 by imoreno          ###   ########.fr       */
+/*   Created: 2022/01/12 00:40:30 by imoreno           #+#    #+#             */
+/*   Updated: 2022/01/12 19:49:37 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned int	i;
+	int		i;
+	int		j;
+	char	*new_str;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	i = 0;
-	while (i < n)
-	{
-		if (((char *)s2)[i] - ((char *)s1)[i] != 0)
-		{
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
-		}
+	j = ft_strlen((char *)s1);
+	while (s1[i] && ft_strchr((char *)set, s1[i]))
 		i++;
+	if (ft_strlen((char *)&s1[i]) != 0)
+	{
+		while (j > i && ft_strchr((char *)set, s1[j]))
+			j--;
 	}
-	return (0);
+	new_str = malloc(j - i + 2);
+	if (!new_str)
+		return (NULL);
+	new_str = ft_substr(s1, i, j - i + 1);
+	return (new_str);
 }

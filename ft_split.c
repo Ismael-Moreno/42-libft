@@ -1,42 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 20:02:40 by imoreno           #+#    #+#             */
-/*   Updated: 2022/01/12 13:22:31 by imoreno          ###   ########.fr       */
+/*   Created: 2022/01/12 19:55:03 by imoreno           #+#    #+#             */
+/*   Updated: 2022/01/16 22:10:41 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, int n)
+char	**ft_split(char const *s, char c)
 {
-	int				i;
-	unsigned char	*new_dst;
-	unsigned char	*new_src;
+	int		len;
+	char	**new_str;
+	int		i;
 
-	new_dst = (unsigned char *)dst;
-	new_src = (unsigned char *)src;
-	if (!dst && !src && n > 0)
-		return (0);
-	if (new_dst < new_src)
+	i = 0;
+	len = ft_strlen((char *)s);
+	new_str = malloc(len -1);
+	if (!new_str)
+		return NULL;
+	while (s[i])
 	{
-		i = 0;
-		while (n--)
-		{
-			((char *)new_dst)[i] = ((char *)new_src)[i];
-			i++;
-		}
+		if (ft_strchr(s[i], c))
 	}
-	else
-	{
-		while (n--)
-		{
-			((char *)new_dst)[n] = ((char *)new_src)[n];
-		}
-	}
-	return (new_dst);
 }
