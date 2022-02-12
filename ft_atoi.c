@@ -6,10 +6,11 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 21:10:50 by imoreno           #+#    #+#             */
-/*   Updated: 2022/01/12 14:19:52 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/02/09 00:57:31 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

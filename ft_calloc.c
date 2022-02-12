@@ -6,7 +6,7 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 09:30:24 by imoreno           #+#    #+#             */
-/*   Updated: 2022/01/12 14:05:02 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/02/12 12:39:51 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	mem = malloc(size * count);
 	if (!mem)
 		return (NULL);
-	ft_memset(mem, 0, count * size);
+	ft_bzero(mem, size * count);
 	return (mem);
 }

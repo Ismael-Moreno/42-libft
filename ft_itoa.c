@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 20:02:40 by imoreno           #+#    #+#             */
-/*   Updated: 2022/02/12 12:06:49 by imoreno          ###   ########.fr       */
+/*   Created: 2022/02/08 20:35:42 by imoreno           #+#    #+#             */
+/*   Updated: 2022/02/12 12:01:13 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "string.h"
 
-void	*ft_memmove(void *dst, const void *src, int n)
+char	*ft_itoa(int n)
 {
-	int				i;
-	unsigned char	*new_dst;
-	unsigned char	*new_src;
+	char	*str;
 
-	new_dst = (unsigned char *)dst;
-	new_src = (unsigned char *)src;
-	if (!dst && !src && n > 0)
-		return (0);
-	if (new_dst < new_src)
+	if (n == -2147483648)
 	{
-		i = 0;
-		while (n--)
-		{
-			((char *)new_dst)[i] = ((char *)new_src)[i];
-			i++;
-		}
+		return (ft_strdup("-2147483648"));
 	}
-	else
+	str = (char *)malloc(sizeof(char) * 2);
+	if (!str)
+		return (NULL);
+	if (n < 0)
 	{
-		while (n--)
-		{
-			((char *)new_dst)[n] = ((char *)new_src)[n];
-		}
+		str[0] = '-';
+		str[1] = '\0';
+		str = ft_strjoin(str, ft_itoa(-n));
 	}
-	return (new_dst);
+	else if (n >= 10)
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	else if (n < 10 && n >= 0)
+	{
+		str[0] = n + '0';
+		str[1] = '\0';
+	}
+	return (str);
 }
