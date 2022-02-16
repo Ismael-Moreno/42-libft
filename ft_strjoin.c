@@ -6,7 +6,7 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 00:21:53 by imoreno           #+#    #+#             */
-/*   Updated: 2022/01/12 19:53:13 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/02/16 11:05:56 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len1 = ft_strlen((char *)s1);
 	len2 = ft_strlen((char *)s2);
-	new_str = (char *)malloc(len1 + len2);
+	new_str = (char *)malloc(len1 + len2 + 1);
 	if (!new_str)
 		return (NULL);
 	ft_strlcpy(new_str, s1, len1 + 1);

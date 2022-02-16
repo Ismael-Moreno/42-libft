@@ -6,7 +6,7 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:48:06 by imoreno           #+#    #+#             */
-/*   Updated: 2022/02/12 12:08:37 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:22:05 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,11 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
-		{
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
-		}
 		i++;
 	}
-	if (c == s[i])
-	{
+	if (!c)
 		return ((char *)&s[i]);
-	}
 	return (NULL);
 }

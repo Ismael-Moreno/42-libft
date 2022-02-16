@@ -50,14 +50,14 @@ OBJ 	= $(SRC:%.c=%.o)
 BONUS_OBJ = $(BONUS:%.c=%.o)
 
 .c.o:
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
-
-all: $(NAME)
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME): $(OBJ)
 	@ar rcs $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo Mandatory part compiled successfully
+
+all: $(NAME)
 
 bonus: $(OBJ) $(BONUS_OBJ)
 	@ar rcs $(NAME) $(OBJ) $(BONUS_OBJ)

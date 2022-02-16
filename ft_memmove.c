@@ -6,7 +6,7 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 20:02:40 by imoreno           #+#    #+#             */
-/*   Updated: 2022/02/12 12:06:49 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/02/16 15:14:11 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	*ft_memmove(void *dst, const void *src, int n)
 
 	new_dst = (unsigned char *)dst;
 	new_src = (unsigned char *)src;
+	i = 0;
 	if (!dst && !src && n > 0)
-		return (0);
+		return (NULL);
 	if (new_dst < new_src)
 	{
-		i = 0;
 		while (n--)
 		{
 			((char *)new_dst)[i] = ((char *)new_src)[i];

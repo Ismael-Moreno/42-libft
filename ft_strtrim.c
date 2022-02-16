@@ -6,7 +6,7 @@
 /*   By: imoreno <imoreno@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 00:40:30 by imoreno           #+#    #+#             */
-/*   Updated: 2022/01/12 19:49:37 by imoreno          ###   ########.fr       */
+/*   Updated: 2022/02/16 09:04:52 by imoreno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		j;
-	char	*new_str;
+	size_t		i;
+	size_t		j;
+	int			k;
+	char		*new_str;
 
-	if (s1 == NULL || set == NULL)
+	if (!s1 || !set)
 		return (NULL);
 	i = 0;
 	j = ft_strlen((char *)s1);
 	while (s1[i] && ft_strchr((char *)set, s1[i]))
 		i++;
-	if (ft_strlen((char *)&s1[i]) != 0)
-	{
-		while (j > i && ft_strchr((char *)set, s1[j]))
-			j--;
-	}
-	new_str = malloc(j - i + 2);
+	while ((j > i) && ft_strchr((char *)set, s1[j]))
+		j--;
+	new_str = malloc(sizeof(char) * (j - i + 2));
 	if (!new_str)
 		return (NULL);
-	new_str = ft_substr(s1, i, j - i + 1);
+	k = 0;
+	while (i <= j)
+		new_str[k++] = s1[i++];
+	new_str[k] = '\0';
 	return (new_str);
 }
